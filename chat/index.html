@@ -12,20 +12,26 @@
         <link rel="alternate" type="application/rss+xml" title="emudev.org" href="http://emudev.org/feed.xml">
         <meta property='og:image' content='screenshot.png'/>
    <!-- <meta property='og:video' content='https://www.youtube.com/embed/IFo6CNigp10'/> -->
+        <style>
+            body {
+                background-image: url("discord_tile.png");
+                background-repeat: repeat;
+				overflow: hidden;
+            }
+            body, html {
+                height: 100%;
+            }
+        </style>
     </head>
     <body>
         <widgetbot
             shard="https://cl1.widgetbot.io"
             server="461495552039714817"
             channel="461495552039714819"
-			width="100%"
-			height="98%"
+            width="100%"
+            height="98%"
         >
         </widgetbot>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-    <script>
-        document.getElementsByTagName("HTML")[0].style.height = "100%";
-        document.getElementsByTagName("BODY")[0].style.height = "100%";
-    </script>
 </html>
