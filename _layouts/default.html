@@ -56,6 +56,13 @@
         padding: 20px;
         text-align: center;
       }
+
+      @media (prefers-color-scheme: dark) {
+        body { background-color: #212529; color: #6c757d; }
+        .logo { filter: invert(.9); }
+        a { color: rgba(255,255,255,.65); }
+        h1, h2, h3, .lead { color: #dee2e6; }
+      }
     </style>
   </head>
   <body>
