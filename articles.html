@@ -3,6 +3,11 @@ layout: default
 ---
 
 {% for post in site.posts %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<h2 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<small>by {{ post.author }} on {{ post.date | date_to_string }}</small>
 {{ post.excerpt }}
+{% if post.excerpt != post.content %}
+<a href="{{ post.url }}">Read more</a>
+{% endif %}
+<hr>
 {% endfor %}
