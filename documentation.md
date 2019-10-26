@@ -9,16 +9,16 @@ Below are some useful resources for various popular systems. If you're unsure wh
 ## CHIP-8
 - <http://devernay.free.fr/hacks/chip8/C8TECH10.HTM>
 - <https://github.com/tomdaley92/Kiwi8/issues/9>
-- <https://cdn.discordapp.com/attachments/465586212804100106/482263582793531423/BC\_test.txt>
-- <https://cdn.discordapp.com/attachments/465586212804100106/482263586547302426/BC\_test.ch8>
-- <https://cdn.discordapp.com/attachments/465586212804100106/482263592696152074/ELF\_CHIP-8\_Interpreter.pdf>
+- <https://cdn.discordapp.com/attachments/465586212804100106/482263582793531423/BC_test.txt>
+- <https://cdn.discordapp.com/attachments/465586212804100106/482263586547302426/BC_test.ch8>
+- <https://cdn.discordapp.com/attachments/465586212804100106/482263592696152074/ELF_CHIP-8_Interpreter.pdf>
 - <https://bit.ly/2Xl4sjo>
 
 ## Pacman
-- <https://drive.google.com/file/d/1Pnvl53-8VnJs7yo-fyd1ayNBo\_ZSBiS7/view>
+- <https://drive.google.com/file/d/1Pnvl53-8VnJs7yo-fyd1ayNBo_ZSBiS7/view>
 
 ## Intel 8080/Space Invaders
-- <http://altairclone.com/downloads/cpu\_tests> (needs cp/m implementation to work)
+- <http://altairclone.com/downloads/cpu_tests> (needs cp/m implementation to work)
 - <https://www.seasip.info/Cpm/bdos.html> (for a cp/m implementation, not needed for Space Invaders)
 - <http://computerarcheology.com/Arcade/SpaceInvaders>
 - <http://www.emutalk.net/threads/38177-Space-Invaders> (for the pdf download) 
@@ -29,7 +29,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 ## Game Boy (GB)
 - <https://github.com/avivace/awesome-gbdev>
 - <https://izik1.github.io/gbops/table/table.html>
-- <https://www.reddit.com/r/EmuDev/comments/5gkwi5/gb\_apu\_sound\_emulation/dat3zni>
+- <https://www.reddit.com/r/EmuDev/comments/5gkwi5/gb_apu_sound_emulation/dat3zni>
 - <https://rednex.github.io/rgbds/gbz80.7.html>
 - <https://github.com/AntonioND/giibiiadvance/blob/master/docs/TCAGBD.pdf>
 - <https://ehaskins.com/2018-01-30%20Z80%20DAA>
@@ -37,7 +37,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 
 ## Game Boy Advance (GBA)
 - <https://problemkaputt.de/gbatek.htm>
-- <https://www.nogba.com/no>$gba-download.htm (get the debug version)
+- <https://www.nogba.com/no$gba-download.htm> (get the debug version)
 - <https://github.com/Emu-Docs/Emu-Docs/tree/master/Game%20Boy%20Advance>
 - <http://vision.gel.ulaval.ca/~jflalonde/cours/1001/h17/docs/arm-instructionset.pdf> (ARM)
 - <https://ece.uwaterloo.ca/~ece222/ARM/ARM7-TDMI-manual-pt3.pdf> (THUMB)
@@ -49,20 +49,20 @@ Below are some useful resources for various popular systems. If you're unsure wh
 ## Nintendo Entertainment System (NES)
 - <http://nesdev.com/NES%20emulator%20development%20guide.txt>
 - <https://yizhang82.dev/nes-emu-overview>
-- <http://wiki.nesdev.com/w/index.php/Nesdev\_Wiki>
+- <http://wiki.nesdev.com/w/index.php/Nesdev_Wiki>
 
 ## PlayStation (PS1/PSX)
 - <https://github.com/simias/psx-guide> (Guide to get you started. Rendered pdf: <https://goo.gl/z5zQ2W>)
 - <https://problemkaputt.de/psx-spx.htm> (Most complete source of info)
 - <http://wiki.psxdev.ru/index.php/BIOS> (translated: <https://goo.gl/cDyVGq>)
-- <http://emulation.gametechwiki.com/index.php/PS1\_Tests> (see link below on how to load them)
+- <http://emulation.gametechwiki.com/index.php/PS1_Tests> (see link below on how to load them)
 - <http://www.emulatronia.com/doctec/consolas/psx/exeheader.txt> (also see "CDROM File Formats" section in psx-spx)
 - <http://hitmen.c02.at/files/docs/psx/3467.pdf> CPU Reference Manual (if you want all the nitty gritty)
 - <https://github.com/ogamespec/psxdev/tree/master/reverse>
-- <http://hitmen.c02.at/html/psx\_docs.html>
-- <http://www.raphnet.net/electronique/psx\_adaptor/Playstation.txt>
+- <http://hitmen.c02.at/html/psx_docs.html>
+- <http://www.raphnet.net/electronique/psx_adaptor/Playstation.txt>
 - <https://github.com/ogamespec/pops-gte> (GTE info)
-- <https://github.com/m35/jpsxdec/blob/readme/jpsxdec/PlayStation1\_STR\_format.txt> (great MDEC & CDROM info)
+- <https://github.com/m35/jpsxdec/blob/readme/jpsxdec/PlayStation1_STR_format.txt> (great MDEC & CDROM info)
 - <https://github.com/PeterLemon/PSX/tree/master> (useful tests in /GPU in particular)
 - <https://github.com/simias/psx-hardware-tests/tree/master/tests>
 
@@ -74,7 +74,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 
 ## PC/8086
 - <https://software.intel.com/sites/default/files/managed/39/c5/325462-sdm-vol-1-2abcd-3abcd.pdf> (modern but searchable and all in one PDF)
-- <https://edge.edx.org/c4x/BITSPilani/EEE231/asset/8086\_family\_Users\_Manual\_1\_.pdf> (not searchable)
+- <https://edge.edx.org/c4x/BITSPilani/EEE231/asset/8086_family_Users_Manual_1_.pdf> (not searchable)
 
 ## Sega Master System (SMS)
 - <http://baltazarstudios.com/zilog-z80-undocumented-behavior>
@@ -84,4 +84,4 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - Video Hardware: <http://www.smspower.org/Development/VDPRegisters>
 - Sound Hardware: <http://www.smspower.org/Development/SN76489?from=Development.PSG>
 - Lots of simple homebrew test cases: <http://www.smspower.org/Homebrew/NotOnlyWords-SMS>
-- Commodore 64 (C64): <https://www.c64-wiki.com/wiki/Main\_Page>
+- Commodore 64 (C64): <https://www.c64-wiki.com/wiki/Main_Page>
