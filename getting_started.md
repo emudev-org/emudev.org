@@ -27,9 +27,9 @@ Definitions for some terms you might come across:
 - <https://bheisler.github.io/post/experiments-in-nes-jit-compilation>
 
 ## Virtualization
-- [Virtualization Internals Part 1 - Intro to Virtualization](https://saferwall.com/blog/virtualization-internals-part-1-intro-to-virtualization>)
-- [Virtualization Internals Part 2 - VMWare and Virtualization using Binary Translation](https://saferwall.com/blog/virtualization-internals-part-2-vmware-and-virtualization-using-binary-translation)
-- [Virtualization Internals Part 3 - Xen and Paravirtualization](https://saferwall.com/blog/virtualization-internals-part-3-xen-and-paravirtualization)
+- [Virtualization Internals Part 1 - Intro to Virtualization](https://about.saferwall.com/blog/virtualization-internals-part-1-intro-to-virtualization>)
+- [Virtualization Internals Part 2 - VMWare and Virtualization using Binary Translation](https://about.saferwall.com/blog/virtualization-internals-part-2-vmware-and-virtualization-using-binary-translation)
+- [Virtualization Internals Part 3 - Xen and Paravirtualization](https://about.saferwall.com/blog/virtualization-internals-part-3-xen-and-paravirtualization)
 - Virtual Machines: Versatile Platforms for Systems and Processes (book): <https://www.amazon.com/dp/1558609105>
 - Hypervisor development: <https://revers.engineering/7-days-to-virtualization-a-series-on-hypervisor-development>
 
