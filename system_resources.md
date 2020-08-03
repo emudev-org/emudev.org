@@ -121,6 +121,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 
 ## Super Nintendo Entertainment System
 - [fullsnes](https://problemkaputt.de/fullsnes.htm)
+- [65c816 primer]: https://softpixel.com/~cwright/sianse/docs/65816NFO.HTM
 - [SNES development wiki](https://wiki.superfamicom.org/):
     - [65c816 CPU reference](https://wiki.superfamicom.org/65816-reference)
     - [SPC-700 APU reference](https://wiki.superfamicom.org/spc700-reference)
