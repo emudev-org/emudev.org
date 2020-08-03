@@ -9,11 +9,11 @@ Below are some useful resources for various popular systems. If you're unsure wh
 # Systems
 
 ## Multiple systems
-- https://www.zophar.net/documents.html
-- http://emulator101.com
-- http://www.codeslinger.co.uk (doesn't respond to https://, disable extensions such as HTTPS Everywhere if it doesn't load)
-- https://emudev.de
-- https://shonumi.github.io
+- <https://www.zophar.net/documents.html>
+- <http://emulator101.com>
+- <http://www.codeslinger.co.uk> (doesn't respond to https://, disable extensions such as HTTPS Everywhere if it doesn't load)
+- <https://emudev.de>
+- <https://shonumi.github.io>
 
 ## CHIP-8
 - There are a lot of full tutorials on the Internet, so just searching "chip8 emulator tutorial" and looking for one in your language of choice should be enough if you're looking for a step-by-step guide
@@ -21,21 +21,21 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - References:
     - [CHIP-8 technical reference](https://github.com/mattmikolay/chip-8/wiki/CHIP%E2%80%908-Technical-Reference)
     - [CHIP-8 instruction set](https://github.com/mattmikolay/chip-8/wiki/CHIP%E2%80%908-Instruction-Set)
-    - [Cowgod's Technical Reference (doesn't respond to https://)](http://devernay.free.fr/hacks/chip8/C8TECH10.HTM)
+    - [Cowgod's Technical Reference](http://devernay.free.fr/hacks/chip8/C8TECH10.HTM) (doesn't respond to https://)
 - Test ROMs:
     - BestCoder test:
         - [Description](https://cdn.discordapp.com/attachments/465586212804100106/482263582793531423/BC_test.txt)
         - [ROM](https://cdn.discordapp.com/attachments/465586212804100106/482263586547302426/BC_test.ch8)
-    - https://github.com/corax89/chip8-test-rom
-    - https://github.com/metteo/chip8-test-rom
-    - https://github.com/Skosulor/c8int/tree/master/test
+    - <https://github.com/corax89/chip8-test-rom>
+    - <https://github.com/metteo/chip8-test-rom>
+    - <https://github.com/Skosulor/c8int/tree/master/test>
 - Other resources:
     - [ROM compatibility issues](https://github.com/tomdaley92/Kiwi8/issues/9)
     - [Writing a CHIP-8 interpreter for the COSMAC ELF](https://cdn.discordapp.com/attachments/465586212804100106/482263592696152074/ELF_CHIP-8_Interpreter.pdf)
     - [COSMAC VIP manual](https://cdn.discordapp.com/attachments/465586212804100106/482263593753247744/VIP_Manual_Game_Manual_I.pdf)
 
 ## Bytepusher
-- https://esolangs.org/wiki/BytePusher
+- <https://esolangs.org/wiki/BytePusher>
 
 ## Pac-Man
 - See [Z80 resources](#z80) below
@@ -46,7 +46,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [SN76477N technical data](https://web.archive.org/web/20150425030455/http://www.emutalk.net/attachment.php?attachmentid=34143&d=1160668005)
 - [General info on Space Invaders](http://www.brentradio.com/SpaceInvaders.htm)
 - [Space Invaders disassembly and info](https://computerarcheology.com/Arcade/SpaceInvaders)
-- [CPU tests (need a CP/M implementation or to fake it to some extent, see CP/M section and https://discord.com/channels/465585922579103744/466417993912680459/735434453228191794)](https://altairclone.com/downloads/cpu_tests)
+- [CPU tests](https://altairclone.com/downloads/cpu_tests) (need a CP/M implementation or to fake it to some extent, see CP/M section and [this Discord message](https://discord.com/channels/465585922579103744/466417993912680459/735434453228191794))
 
 ## CP/M
 - See [8080 resources](#8080) below
@@ -78,33 +78,33 @@ Below are some useful resources for various popular systems. If you're unsure wh
 ## Game Boy Advance
 - See relevant [ARM resources](#arm) below (the ARM7TDMI used in the GBA implements ARMv4T)
 - [GBATEK](https://problemkaputt.de/gbatek.htm)
-- [no$gba (get the debug version)](https://problemkaputt.de/gba.htm)
+- [no$gba](https://problemkaputt.de/gba.htm) (get the debug version)
 - [TONC (GBA tutorial and demos)](https://www.coranac.com/projects/tonc)
 - Test ROMs:
     - [Various test ROMs, including an archive of TONC binaries](https://github.com/shonumi/Emu-Docs/tree/master/GameBoy%20Advance/test_roms)
-    - https://github.com/destoer/armwrestler-gba-fixed
-    - https://github.com/DenSinH/FuzzARM
-    - https://github.com/jsmolka/gba-suite
-    - https://github.com/destoer/gba_tests
-    - https://github.com/PeterLemon/GBA
-    - https://github.com/ladystarbreeze/gba-tests/tree/master/dma-test
-- [mGBA blog (particularly the "development" and "emulation" tags)](https://mgba.io)
+    - <https://github.com/destoer/armwrestler-gba-fixed>
+    - <https://github.com/DenSinH/FuzzARM>
+    - <https://github.com/jsmolka/gba-suite>
+    - <https://github.com/destoer/gba_tests>
+    - <https://github.com/PeterLemon/GBA>
+    - <https://github.com/ladystarbreeze/gba-tests/tree/master/dma-test>
+- [mGBA blog](https://mgba.io) (particularly the "development" and "emulation" tags)
 - Homebrew development:
-    - https://rust-console.github.io/gba
-    - https://patater.com/gbaguy/gbaasm.htm
+    - <https://rust-console.github.io/gba>
+    - <https://patater.com/gbaguy/gbaasm.htm>
 
 ## Nintendo DS
 - See relevant [ARM resources](#arm) below (the DS uses an ARM7TDMI and an ARM946E-S, implementing respectively ARMv4T and ARMv5TE)
 - [GBATEK](https://problemkaputt.de/gbatek.htm)
 - [Other docs](https://github.com/shonumi/Emu-Docs/tree/master/Nintendo%20DS)
 - Test ROMs:
-    - https://github.com/mic-/armwrestler
+    - <https://github.com/mic-/armwrestler>
         - [Built ROM](https://cdn.discordapp.com/attachments/667132407262216272/732206968252661800/armwrestler.nds)
-    - https://github.com/Arisotura/arm7wrestler
+    - <https://github.com/Arisotura/arm7wrestler>
         - [Built ROM](https://cdn.discordapp.com/attachments/667132407262216272/732206999890165780/arm7wrestler.nds)
-    - https://tcrf.net/Aging_Card_NTR
+    - <https://tcrf.net/Aging_Card_NTR>
 - [Sample homebrew programs](https://github.com/devkitPro/nds-examples)
-- [Arisotura's blog (uses self-signed certificate but works with https://)](https://melonds.kuribo64.net)
+- [Arisotura's blog](https://melonds.kuribo64.net) (uses self-signed certificate but works with https://)
 
 ## Nintendo 3DS
 - See relevant [ARM resources](#arm) (the 3DS's ARM11 MPCore implements ARMv6K, not plain ARMv6, so you'll have to look at the ARMv7-AR manual too for the few additions; the ARM9 is the same as on the [Nintendo DS](#nintendo-ds))
@@ -128,18 +128,18 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [Test ROMs](https://github.com/PeterLemon/SNES)
 
 ## Nintendo 64
-- [CPU manual (doesn't respond with the correct file using https://)](http://datasheets.chipdb.org/NEC/Vr-Series/Vr43xx/U10504EJ7V0UMJ1.pdf)
+- [CPU manual](http://datasheets.chipdb.org/NEC/Vr-Series/Vr43xx/U10504EJ7V0UMJ1.pdf) (doesn't respond with the correct file using https://)
 - [Notes and resources](https://github.com/Dillonb/n64-resources)
 - [Development resources](https://ultra64.ca/resources/documentation)
 - [Info on the N64's boot code](https://www.retroreversing.com/n64bootcode)
 - [Test ROMs](https://github.com/PeterLemon/N64)
-- [Fork of the above test ROMs, with a few more ones (significantly outdated)](https://github.com/fraser125/N64)
+- [Fork of the above test ROMs, with a few more ones](https://github.com/fraser125/N64) (significantly outdated)
 - [RSP docs](https://github.com/rasky/r64emu/blob/master/doc/rsp.md)
 - [Other resources](https://n64.dev)
 
 ## Nintendo GameCube
 - See [PowerPC resources](#powerpc) below
-- https://www.gc-forever.com/yagcd/
+- <https://www.gc-forever.com/yagcd>
 
 ## PlayStation 1
 - [Guide to writing a PSX emulator](https://github.com/simias/psx-guide)
@@ -149,7 +149,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [BIOS info](http://wiki.psxdev.ru/index.php/BIOS)
     - [Translated](https://goo.gl/cDyVGq)
 - [The PSX GPU texture pipeline and how to emulate it](https://www.reddit.com/r/EmuDev/comments/fmhtcn)
-- [PSX EXE header (also see "CDROM File Formats" section in psx-spx)](http://www.emulatronia.com/doctec/consolas/psx/exeheader.txt)
+- [PSX EXE header](http://www.emulatronia.com/doctec/consolas/psx/exeheader.txt) (also see "CDROM File Formats" section in psx-spx)
 - [PSX system software reverse engineering project](https://github.com/ogamespec/psxdev/tree/master/reverse)
 - [Other PSX documentation (including a CPU reference manual)](http://hitmen.c02.at/html/psx_docs.html)
 - [PSX GTE docs/reverse engineering](https://github.com/ogamespec/pops-gte)
@@ -159,9 +159,9 @@ Below are some useful resources for various popular systems. If you're unsure wh
     - [Translated](https://translate.google.com/translate?sl=auto&tl=en&u=http%3A%2F%2Fdrhell.web.fc2.com%2Fps1%2Findex.html)
 - Test ROMs:
     - [Amidog's tests](https://emulation.gametechwiki.com/index.php/PS1_Tests)
-    - https://github.com/PeterLemon/PSX
-    - https://github.com/JaCzekanski/ps1-tests
-    - https://github.com/simias/psx-hardware-tests/tree/master/tests
+    - <https://github.com/PeterLemon/PSX>
+    - <https://github.com/JaCzekanski/ps1-tests>
+    - <https://github.com/simias/psx-hardware-tests/tree/master/tests>
     - [PSX demos](https://www.pouet.net/prodlist.php?order=thumbup&platform%5B0%5D=Playstation&page=1)
 
 ## PlayStation 2
@@ -180,7 +180,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
     - [Sound Hardware](https://www.smspower.org/Development/SN76489)
 - Test ROMs:
     - [Homebrew test cases](https://www.smspower.org/Homebrew/NotOnlyWords-SMS)
-    - [ZEXALL test ROM (doesn't require any hardware, it can log to an IO port)](https://www.smspower.org/Homebrew/ZEXALL-SMS)
+    - [ZEXALL test ROM](https://www.smspower.org/Homebrew/ZEXALL-SMS) (doesn't require any hardware, it can log to an IO port)
     - [PeterLemon's SMS demos](https://github.com/PeterLemon/SMS)
 
 ## Sega Genesis/Mega Drive
@@ -191,16 +191,16 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [SH-2 programming manual](https://antime.kapsi.fi/sega/files/h12p0.pdf)
 
 ## Commodore 64
-- [MCS6500 family programming manual (doesn't respond to https://)](http://archive.6502.org/books/mcs6500_family_programming_manual.pdf)
+- [MCS6500 family programming manual](http://archive.6502.org/books/mcs6500_family_programming_manual.pdf) (doesn't respond to https://)
 - [C64 wiki](https://www.c64-wiki.com)
 - [VICE test ROMs](https://vice-emu.pokefinder.org/index.php/Testbench)
-- [SID manual (doesn't respond to https://)](http://archive.6502.org/datasheets/mos_6581_sid.pdf)
+- [SID manual](http://archive.6502.org/datasheets/mos_6581_sid.pdf) (doesn't respond to https://)
 - [C64 assembly language programming](https://www.retro-programming.de)
     - [Translated](https://translate.google.com/translate?sl=auto&tl=en&u=https%3A%2F%2Fwww.retro-programming.de)
 - [Scanline missing cycles](http://www.antimon.org/dl/c64/code/missing.txt)
 - [Opening the borders](http://www.antimon.org/dl/c64/code/opening.txt)
 - [Info on the VIC-II](http://www.zimmers.net/cbmpics/cbm/c64/vic-ii.txt)
-- [SID info (doesn't respond to https://)](http://www.oxyron.de/html/registers_sid.html)
+- [SID info](http://www.oxyron.de/html/registers_sid.html) (doesn't respond to https://)
 - Programming the C64's SID:
     - [Part 1](https://www.atarimagazines.com/compute/issue49/424_1_Programming_64_Sound.php)
     - [Part 2](https://www.atarimagazines.com/compute/issue50/277_1_Programming_64_Sound.php)
@@ -210,7 +210,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 
 ## Mac
 - See [m68k](#m68k)/[PowerPC](#powerpc) resources below
-- [Apple's guide to the macintosh family hardware (400 MB pdf)](https://archive.org/details/apple-guide-macintosh-family-hardware)
+- [Apple's guide to the macintosh family hardware](https://archive.org/details/apple-guide-macintosh-family-hardware) (400 MB pdf)
 
 ## MSX
 - See [Z80 resources](#z80) below
@@ -223,11 +223,11 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [Xbox architecture](https://www.copetti.org/projects/consoles/xbox)
 
 ## Neo Geo
-- [Development wiki (has overviews of every piece of hardware)](https://wiki.neogeodev.org/index.php?title=Main_Page)
+- [Development wiki](https://wiki.neogeodev.org/index.php?title=Main_Page) (has overviews of every piece of hardware)
 - [Sample ROMs](https://github.com/PeterLemon/NEO-GEO)
 
 ## Pokémon Mini
-- https://www.pokemon-mini.net/documentation
+- <https://www.pokemon-mini.net/documentation>
 
 ## Tamagotchi
 - [Tech specs and resources](https://tama.loociano.com)
@@ -252,16 +252,16 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [Loading test ROMs that require a CP/M implementation/stub](https://discord.com/channels/465585922579103744/466417993912680459/735434453228191794)
 
 ## m68k
-- [Instruction set reference (just a summary for each instruction, doesn't respond to https://)](http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf)
+- [Instruction set reference](http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf) (just a summary for each instruction, doesn't respond to https://)
 - [Programmer's reference manual](https://www.nxp.com/files-static/archives/doc/ref_manual/M68000PRM.pdf)
 
 ## PowerPC
 - [IBM's PowerPC Architecture Book](https://www.ibm.com/developerworks/systems/library/es-archguide-v2.html)
 
 ## ARM
-- [ARM instruction set info for the ARM7TDMI-S (not the full document, which apparently can't be found anymore)](https://vision.gel.ulaval.ca/~jflalonde/cours/1001/h17/docs/arm-instructionset.pdf)
-- [ARM7TDMI datasheet (contains info about ARM and thumb instruction sets)](https://www.dwedit.org/files/ARM7TDMI.pdf)
-- [ARM7TDMI-S Technical Reference Manual (doesn't contain instruction descriptions, but has info on timing)](https://documentation-service.arm.com/static/5e8e13a9fd977155116a3368)
+- [ARM instruction set info for the ARM7TDMI-S](https://vision.gel.ulaval.ca/~jflalonde/cours/1001/h17/docs/arm-instructionset.pdf) (not the full document, which apparently can't be found anymore)
+- [ARM7TDMI datasheet](https://www.dwedit.org/files/ARM7TDMI.pdf) (contains info about ARM and thumb instruction sets)
+- [ARM7TDMI-S Technical Reference Manual](https://documentation-service.arm.com/static/5e8e13a9fd977155116a3368) (doesn't contain instruction descriptions, but has info on timing)
 - [ARMv5TE technical reference manual](https://cdn.discordapp.com/attachments/667132407262216272/733255145495986246/ARMv5TE_reference_manual.pdf)
 - [ARMv6 technical reference manual](https://cdn.discordapp.com/attachments/466639715001565184/712037447944634378/ARMv6_reference_manual.pdf)
 - [ARMv7-AR technical reference manual](https://cdn.discordapp.com/attachments/466639715001565184/715533762703654962/ARMv7-AR_reference_manual.pdf)
