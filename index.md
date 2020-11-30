@@ -21,6 +21,5 @@ This effort is not related to piracy. You will not find binaries/roms here.
 
 There are many ways to contribute to emudev, whatever your background or skill level.
 * Our [Getting Started](/getting_started) page is written for beginners, and includes resources for learning general emulation techniques and terminology.
-* If your're interested in working on a particular system, our [Documentation](/documentation) page consolidates reliable hardware research on many popular systems from around the web.
-* If you don't know where to find the information you need, or you just want to talk with other developers, consider joining our [Discord chat](https://discordapp.com/invite/dkmJAes).
-
+* If you're interested in working on a particular system, our [System Resources](/system_resources) page consolidates reliable hardware research on many popular systems from around the web.
+* If you don't know where to find the information you need, or you just want to talk with other developers, consider joining our [Discord chat](https://discordapp.com/invite/dkmJAes) or other [emulation-related Discord servers](/discord_related).

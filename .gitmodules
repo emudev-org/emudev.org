@@ -1,0 +1,4 @@
+[submodule "docs/gba/gbatek"]
+	path = docs/gba/gbatek
+	url = https://github.com/YetAnotherEmuDev/gbatek-mdbook
+	branch = mdbook
