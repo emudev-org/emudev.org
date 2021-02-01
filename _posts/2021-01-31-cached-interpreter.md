@@ -77,26 +77,26 @@ The extra steps will be:
 So in the end, the general idea will be this:
 ```
 while true:
-	check current address
-	if we are not in a cacheable region (not in ROM/BIOS/iWRAM), do:
-		while we are not in a cacheable region:
-			check scheduler and run events 
-			step, and check if we are in a cacheable region now.
-	if we are in a cacheable region, but no cache exists:
-		make a cache 
-		while true:
-			check the scheduler and run events
-				if the scheduler affected our CPU: break the block and destroy it 
-			fetch 
-			decode and store in cache 
-			run 
-			if the block should end (branch): break 
-	if we are in a cacheable region, and a cache exists:
-		get the cache 
-		for every instruction in the cache:
-			check the scheduler and run events
-				if the scheduler affected our CPU: break
-			run the instruction (in ARM mode: only if condition is true)
+    check current address
+    if we are not in a cacheable region (not in ROM/BIOS/iWRAM), do:
+        while we are not in a cacheable region:
+            check scheduler and run events 
+            step, and check if we are in a cacheable region now.
+    if we are in a cacheable region, but no cache exists:
+        make a cache 
+        while true:
+            check the scheduler and run events
+                if the scheduler affected our CPU: break the block and destroy it 
+            fetch 
+            decode and store in cache 
+            run 
+            if the block should end (branch): break 
+    if we are in a cacheable region, and a cache exists:
+        get the cache 
+        for every instruction in the cache:
+            check the scheduler and run events
+                if the scheduler affected our CPU: break
+            run the instruction (in ARM mode: only if condition is true)
 ```
 This might seem a bit abstract, so here is some actual code. Before I added the cached interpreter, the main loop essentially looked like this (some details like pipeline stuff are left out):
 ```CXX
@@ -436,9 +436,9 @@ holding cached instructions, and every time you make a new block you push instru
 When I wrote one to see performance differences, I did something like this:
 ```CXX
 struct InstructionCache {
-	const bool ARM;
-	u8 Length;
-	CachedInstruction* const Pointer;
+    const bool ARM;
+    u8 Length;
+    CachedInstruction* const Pointer;
 }
 ```
 As you can see, the `InstructionCache` now no longer holds the instructions, but rather a pointer to the instructions in the pre-allocated memory, and a constant of how long the block is.
@@ -455,19 +455,19 @@ your memory usage is not through the roof. `InstructionCache` would be pointing 
 When making a new cache, I did: 
 ```CXX
 InstructionCache ARM7TDMI::NewCache() {
-	if (CacheEnd >= (Cache.size() - (Mem::InstructionCacheBlockSizeBytes >> 1)) {
-		// invalidate entire cache, so go over the array(s) of `InstructionCache`s and set their length to 0
-		CacheEnd = 0;
-	}
-	return InstructionCache(ARMMode, 0, &Cache[CacheEnd]);
+    if (CacheEnd >= (Cache.size() - (Mem::InstructionCacheBlockSizeBytes >> 1)) {
+        // invalidate entire cache, so go over the array(s) of `InstructionCache`s and set their length to 0
+        CacheEnd = 0;
+    }
+    return InstructionCache(ARMMode, 0, &Cache[CacheEnd]);
 }
 ```
 The initial check is to see if we can fit an entire new cache in the unused space of the `Cache` array. If this is not the case, we will have to destroy all the cache blocks and just start again.
 And when adding new instructions, instead of pushing them back on the `InstructionCache`, I would do
 ```CXX
 void ARM7TDMI::BumpAlloc(CachedInstruction& instr) {
-	Cache[CacheEnd++] = instr;
-	CurrentCache->Length++;
+    Cache[CacheEnd++] = instr;
+    CurrentCache->Length++;
 }
 ```
 This method can be very advantagious for systems where the entire address space is writeable, as you would have to invalidate blocks anyway. For a system like the GBA, where you have a lot 
