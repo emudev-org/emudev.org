@@ -4,8 +4,6 @@ title:  "Writing a cached interpreter"
 author: DenSinH
 ---
 
-# Writing a cached interpreter
-
 A while ago, I rewrote my GBA emulator (GBAC-) in C++ (DSHBA) to make it faster. I wanted to add a hardware renderer, and really focus on optimizing it all the way.
 After I was "done", and had reached framerates higher than I had ever hoped before, I recently came back to it, and wanted to try to write a cached interpreter. 
 I have heard a lot of talks about JITs and cached interpreters for performance gain, and since I had reached pretty insane framerates already, I wanted to go even further.
