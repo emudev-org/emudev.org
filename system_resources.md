@@ -70,7 +70,7 @@ Below are some useful resources for various popular systems. If you're unsure wh
 - [GB instruction decoding table](https://cdn.discordapp.com/attachments/465586075830845475/742438340078469150/SM83_decoding.pdf)
 - [Decoding GB opcodes algorithmically](https://gb-archive.github.io/salvage/decoding_gbz80_opcodes/Decoding%20Gamboy%20Z80%20Opcodes.html)
 - [A journey into GB emulation](https://robertovaccari.com/blog/2020_09_26_gameboy)
-- [WIP tutorial on writing a GB emulator in Rust](https://blog.ryanlevick.com/DMG-01/public/book/introduction.html)
+- [WIP tutorial on writing a GB emulator in Rust](https://rylev.github.io/DMG-01/public/book/)
 - [GameBoy Emulator Development Guide](https://hacktix.github.io/GBEDG)
 - Test ROMs:
     - [Blargg's test ROMs](https://github.com/retrio/gb-test-roms)
