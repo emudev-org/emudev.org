@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Angrylion RDP Commented
+title: Angrylion RDP Comments
 author: cqcumbers
 ---
 
