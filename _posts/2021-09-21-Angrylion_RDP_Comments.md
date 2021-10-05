@@ -4002,8 +4002,8 @@ static inline void texture_pipeline_cycle(COLOR* TEX, COLOR* prev, int32_t SSS, 
                 invt0r  = ~t0.r; invt0g = ~t0.g; invt0b = ~t0.b; invt0a = ~t0.a;
                 if (!convert)
                 {
-                    // if fractional coords exactly centered
-                    // TODO: describe what is being computed
+                    // box filter if fractional coords exactly
+                    // centered (average all 4 texel colors)
                     sfrac <<= 2;
                     tfrac <<= 2;
                     TEX->r = t0.r + ((((sfrac * (t1.r - t0.r)) + (tfrac * (t2.r - t0.r))) + ((invt0r + t3.r) << 6) + 0xc0) >> 8);
@@ -4288,7 +4288,6 @@ void render_spans_1cycle_complete(int start, int end, int tilenum, int flip)
             // truncate depth to 22 bits (s.18.3)
             // S/T/W coords to 16 bits (s.15)
             // R/G/B/A values to 13 bits (s.10.2)
-            // TODO: needs more verification
             sr = r >> 14;
             sg = g >> 14;
             sb = b >> 14;
@@ -4339,7 +4338,7 @@ void render_spans_1cycle_complete(int start, int end, int tilenum, int flip)
             tclod_1cycle_next(&news, &newt, s, t, w, dsinc, dtinc, dwinc, i, prim_tile, &newtile, &sigs, &prelodfrac);
             // get texel1 color for this pixel
             texture_pipeline_cycle(&texel1_color, &texel1_color, news, newt, newtile, 0);
-            // correct shade and depth of partially covered pixels
+            // correct shade of partially covered pixels
             rgbaz_correct_clip(offx, offy, sr, sg, sb, sa, &sz, curpixel_cvg);
             // get color and alpha dither for pixel
             get_dither_noise_ptr(x, i, &cdith, &adith);
@@ -5937,7 +5936,7 @@ static void edgewalker_for_prims(int32_t* ewdata)
     dzdy = ewdata[43];
 
     // last 5 bits of DrDx are ignored
-    // last 9 bits of r are ignored(?)
+    // for per-pixel increments
     spans_ds = dsdx & ~0x1f;
     spans_dt = dtdx & ~0x1f;
     spans_dw = dwdx & ~0x1f;
@@ -5999,7 +5998,6 @@ static void edgewalker_for_prims(int32_t* ewdata)
 
     // add 3/4 DrDe and subtract 3/4 DrDy from
     // attribute start value if sign(DxhDy) == flip
-    // TODO: explain which bits are being ignored where
     if (do_offset)
     {
         dsdeh = dsde & ~0x1ff;
@@ -6052,6 +6050,8 @@ static void edgewalker_for_prims(int32_t* ewdata)
     else
         dsdxh = dtdxh = dwdxh = drdxh = dgdxh = dbdxh = dadxh = dzdxh = 0;
 
+// last 9 bits of r/DrDe/DrDy/DrDx are
+// ignored for subpixel adjustments
 #define ADJUST_ATTR_PRIM()      \
 {                           \
     span[j].s = ((s & ~0x1ff) + dsdiff - (xfrac * dsdxh)) & ~0x3ff;             \
@@ -6064,6 +6064,8 @@ static void edgewalker_for_prims(int32_t* ewdata)
     span[j].z = ((z & ~0x1ff) + dzdiff - (xfrac * dzdxh)) & ~0x3ff;             \
 }
 
+// all bits of DrDe are used
+// for per-scanline increments
 #define ADDVALUES_PRIM() {  \
             s += dsde;  \
             t += dtde;  \
@@ -6096,8 +6098,8 @@ static void edgewalker_for_prims(int32_t* ewdata)
 
     // round scissored subscanline bounds (yllimit/yhlimit)
     // to get scissored scanline bounds (ylfar/yhclose)
-    // add an extra invalid scanline if bottom scissor hit?
-    // TODO: explain validline
+    // if bottom scissor hit add extra scanline
+    // otherwise make scanline after bound invalid
     int ylfar = yllimit | 3;
     if ((yl >> 2) > (ylfar >> 2))
         ylfar += 4;
@@ -6159,19 +6161,21 @@ static void edgewalker_for_prims(int32_t* ewdata)
                 allinval = 1;
             }
 
-            // round signed 28-bit (s.11.16) xright to
-            // signed 15-bit (s.11.3) xrsc (round to odd)
-            // TODO: explain curover, first xrsc expression
-            // or is it unsigned 14-bit (11.3) xrsc?
+            // round signed 28-bit (s.11.16) xright to unsigned
+            // 14-bit (11.3) xrsc (round to odd, ignore sign bit)
             stickybit = ((xright >> 1) & 0x1fff) > 0;
             xrsc = ((xright >> 13) & 0x1ffe) | stickybit;
 
-            // if XH negative or below left scissor (and bit 26 not set?)
+            // if xrsc negative or below left scissor use left scissor
+            // MSB of 14-bit xrsc checked explicitly (scissor is 13-bit)
             curunder = ((xright & 0x8000000) || (xrsc < clipxhshift && !(xright & 0x4000000)));
-
             xrsc = curunder ? clipxhshift : (((xright >> 13) & 0x3ffe) | stickybit);
+
+            // if xrsc above right scissor use right scissor
             curover = ((xrsc & 0x2000) || (xrsc & 0x1fff) >= clipxlshift);
             xrsc = curover ? clipxlshift : xrsc;
+
+            // save scissored 10.3 xrsc for subscanline
             span[j].majorx[spix] = xrsc & 0x1fff;
             allover &= curover;
             allunder &= curunder;
@@ -6186,7 +6190,9 @@ static void edgewalker_for_prims(int32_t* ewdata)
             allover &= curover;
             allunder &= curunder;
 
-            // also invalid if xleft > xright (but this is flip mode?)
+            // also invalid if xleft < xright (in flip mode)
+            // flip sign bit to simulate 28-bit signed
+            // comparison using unsigned comparison
             curcross = ((xleft ^ (1 << 27)) & (0x3fff << 14)) < ((xright ^ (1 << 27)) & (0x3fff << 14));
 
             invaly |= curcross;
@@ -7744,6 +7750,9 @@ to the combiner and shade alpha sources, but color dithering will only be applie
 after the blender, when the final output color is written.
 
 ```c
+
+// TODO: explain bldiv_hwaccurate_table creation
+
 static inline void blender_equation_cycle0(int* r, int* g, int* b)
 {
     // truncate alphas to 5 bits
@@ -7776,7 +7785,6 @@ static inline void blender_equation_cycle0(int* r, int* g, int* b)
     {
         // rescale numerator to 11 bits, then
         // divide by 3-bit sum of coefficients
-        // TODO: how is division LUT derived?
         sum = ((blend1a & ~3) + (blend2a & ~3) + 4) << 9;
         *r = bldiv_hwaccurate_table[sum | ((blr >> 2) & 0x7ff)];
         *g = bldiv_hwaccurate_table[sum | ((blg >> 2) & 0x7ff)];
@@ -8569,10 +8577,10 @@ static inline uint32_t z_compare(uint32_t zcurpixel, uint32_t sz, uint16_t dzpix
 
     uint32_t oz, dzmem, zval, hval;
     int32_t rawdzmem;
-  uint32_t dzmemmodifier;
-  uint32_t dznew;
-  uint32_t dznotshift;
-  uint32_t farther;
+    uint32_t dzmemmodifier;
+    uint32_t dznew;
+    uint32_t dznotshift;
+    uint32_t farther;
 
     if (other_modes.z_compare_en)
     {
@@ -9611,7 +9619,8 @@ static inline void vi_vl_lerp(CCVG* up, CCVG down, uint32_t frac)
 The shade color and depth value at each pixel of an RDP primitive are interpolated
 using the equation R = Dx * DrDx + Dy * DrDy. These values are calculated per-pixel,
 but subpixel correction is applied on partially covered pixels, so values are not
-extrapolated past the edge of primitives.
+extrapolated past the edge of primitives. This function also clamps the interpolated
+shade_color and z values to 8-bit and 18-bit respectively, for use in later stages.
 
 ```c
 static inline void rgbaz_correct_clip(int offx, int offy, int r, int g, int b, int a, int* z, uint32_t curpixel_cvg)
@@ -9649,7 +9658,7 @@ static inline void rgbaz_correct_clip(int offx, int offy, int r, int g, int b, i
         sz = ((sz << 2) + summand_z) >> 5;
     }
 
-    // clamp asymmetric 11-bit(?) signed
+    // clamp asymmetric 11-bit signed
     // RGB values to unsigned 8 bits
     shade_color.r = special_9bit_clamptable[r & 0x1ff];
     shade_color.g = special_9bit_clamptable[g & 0x1ff];
@@ -9715,9 +9724,10 @@ reciprocal of W, found via LUT, then shifting the result. The 17-bit signed
 output coordinates, are accompanied by flags indicating whether the result
 overflowed or underflowed.
 
-TODO: explain tcdiv_table creation
-
 ```c
+
+// TODO: explain tcdiv_table creation
+
 static void tcdiv_nopersp(int32_t ss, int32_t st, int32_t sw, int32_t* sss, int32_t* sst)
 {
     *sss = (SIGN16(ss)) & 0x1ffff;
@@ -10420,9 +10430,8 @@ S and T coordinates from adjacent pixels of a primitive.
 static inline void tclod_4x17_to_15(int32_t scurr, int32_t snext, int32_t tcurr, int32_t tnext, int32_t previous, int32_t* lod)
 {
     // get abs(snext - scurr)
+    // note s.16 subtraction yields s.17 result
     int dels = SIGN(snext, 17) - SIGN(scurr, 17);
-    // TODO: bit 17 from tcdiv_persp
-    // is overflow flag, not sign bit?
     if (dels & 0x20000)
         dels = ~dels & 0x1ffff;
     // get abs(tnext - tcurr)
@@ -10433,8 +10442,8 @@ static inline void tclod_4x17_to_15(int32_t scurr, int32_t snext, int32_t tcurr,
     // LOD = maximum of S/T deltas
     dels = (dels > delt) ? dels : delt;
     dels = (previous > dels) ? previous : dels;
-    // set MSB of 15-bit result if
-    // bits 14-16 of s.17 inputs set
+    // set MSB of 15-bit LOD if
+    // bits 14-16 of deltas set
     *lod = dels & 0x7fff;
     if (dels & 0x1c000)
         *lod |= 0x4000;
@@ -10450,7 +10459,7 @@ static inline void tclod_tcclamp(int32_t* sss, int32_t* sst)
         // if underflow flagged clamp to INT_MIN
         if (!(temps & 0x20000))
         {
-            // TODO: explain clamping behavior
+            // clamp s.16 to s.15
             tempanded = temps & 0x18000;
             if (tempanded != 0x8000)
             {
@@ -10521,10 +10530,9 @@ static inline void lodfrac_lodtile_signals(int lodclamp, int32_t lod, uint32_t* 
         ltil = 0;
         dis = max_level ? 0 : 1;
 
-        // TODO: what sharpen/detail options
-        // are doing to lfrac?
         if(!other_modes.sharpen_tex_en && !other_modes.detail_tex_en)
         {
+            // clamp lfrac if no sharpen/detail tex
             if (dis)
                 lf = 0xff;
             else
@@ -10532,6 +10540,8 @@ static inline void lodfrac_lodtile_signals(int lodclamp, int32_t lod, uint32_t* 
         }
         else
         {
+            // lfrac = min_level if detail on
+            // invert lfrac if sharpen on
             lf = min_level << 3;
             if (other_modes.sharpen_tex_en)
                 lf |= 0x100;
@@ -10546,6 +10556,7 @@ static inline void lodfrac_lodtile_signals(int lodclamp, int32_t lod, uint32_t* 
 
         if(!other_modes.sharpen_tex_en && !other_modes.detail_tex_en)
         {
+            // clamp lfrac if no sharpen/detail tex
             if (dis)
                 lf = 0xff;
             else
@@ -10553,6 +10564,8 @@ static inline void lodfrac_lodtile_signals(int lodclamp, int32_t lod, uint32_t* 
         }
         else
         {
+            // lfrac = lod if detail on
+            // invert lfrac if sharpen on
             lf = lod << 3;
             if (other_modes.sharpen_tex_en)
                 lf |= 0x100;
@@ -10561,6 +10574,7 @@ static inline void lodfrac_lodtile_signals(int lodclamp, int32_t lod, uint32_t* 
     else
     {
         // if 1.0 <= lod < 14 bits
+        // ltil = log2(integer lod)
         mag = 0;
         ltil =  log2table[(lod >> 5) & 0xff];
         if (max_level)
@@ -10569,8 +10583,10 @@ static inline void lodfrac_lodtile_signals(int lodclamp, int32_t lod, uint32_t* 
             dis = 1;
 
         if(!other_modes.sharpen_tex_en && !other_modes.detail_tex_en && dis)
+            // clamp lfrac if distant and no sharpen/detail tex
             lf = 0xff;
         else
+            // lfrac = lod / 2^ltil mod 1.0
             lf = ((lod << 3) >> ltil) & 0xff;
     }
 
