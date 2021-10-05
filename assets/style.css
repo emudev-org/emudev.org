@@ -2,7 +2,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    max-width: 720px;
+    max-width: 820px;
     margin: auto;
     padding: 20px;
     line-height: 1.5;
@@ -20,6 +20,10 @@ a:hover {
 
 h1, h2, h3 { 
     font-weight: normal;
+}
+
+p, ul {
+    max-width: 720px;
 }
 
 pre {
@@ -51,6 +55,7 @@ th, td {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 720px;
 }
 
 .nav-links {
