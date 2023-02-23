@@ -8,7 +8,7 @@ layout: default
 - [byuu (SNES, Wonderswan Color, etc)](https://discord.gg/y7mJccH)
 - [Citra (3DS)](https://discord.gg/FAXfZV9)
 - [Corgi3DS (3DS)](https://discord.gg/xFSDSeM)
-- [Dolphin (unofficial, GameCube, Wii)](https://discord.gg/Br4xhN4)
+- [Dolphin (GameCube, Wii)](https://discord.gg/Br4xhN4)
 - [Decaf (Wii U)](https://discord.gg/tPqFBnr)
 - [Cemu (Wii U)](https://discord.gg/5psYsup)
 - [RyujiNX (Switch)](https://discord.gg/VkQYXAZ)
