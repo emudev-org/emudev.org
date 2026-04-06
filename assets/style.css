@@ -8,6 +8,12 @@
     --color-border: rgba(128, 128, 128, 0.2);
     --color-border-strong: rgba(128, 128, 128, 0.4);
     --color-code-bg: transparent;
+
+    --dark-color-bg: #212529;
+    --dark-color-text: #9ca5ad;
+    --dark-color-link: rgba(255, 255, 255, 0.75);
+    --dark-color-heading: #dee2e6;
+    --dark-color-code-bg: #171a1e;
 }
 
 body {
@@ -120,12 +126,36 @@ hr {
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg: #212529;
-        --color-text: #9ca5ad;
-        --color-link: rgba(255, 255, 255, 0.75);
-        --color-heading: #dee2e6;
-        --color-code-bg: #171a1e;
+    :root:not([data-theme="light"]) {
+        --color-bg: var(--dark-color-bg);
+        --color-text: var(--dark-color-text);
+        --color-link: var(--dark-color-link);
+        --color-heading: var(--dark-color-heading);
+        --color-code-bg: var(--dark-color-code-bg);
     }
-    .logo { filter: invert(.9); }
+    :root:not([data-theme="light"]) .logo { filter: invert(.9); }
+}
+
+:root[data-theme="dark"] {
+    --color-bg: var(--dark-color-bg);
+    --color-text: var(--dark-color-text);
+    --color-link: var(--dark-color-link);
+    --color-heading: var(--dark-color-heading);
+    --color-code-bg: var(--dark-color-code-bg);
+}
+:root[data-theme="dark"] .logo { filter: invert(.9); }
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 10px;
+    color: var(--color-text);
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.theme-toggle:hover {
+    opacity: 1;
 }

@@ -15,7 +15,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
     <link rel="stylesheet" type="text/css" href="/assets/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){return}if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);})()</script>
   </head>
   <body>
     <nav class="navbar">
@@ -27,9 +28,41 @@
         <li class="nav-item"><a href="https://discordapp.com/invite/dkmJAes"><b>Discord Chat</b></a></li>
         <li class="nav-item"><a href="/discord_related">More Discord Servers</a></li>
       </ul>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false"></button>
     </nav>
     <main>{{ content }}</main>
     <footer><a href="https://github.com/emudev-org/emudev.org">Website source</a> on github. Pull requests very welcome!</footer>
     <script>document.querySelectorAll('table').forEach(t=>{if(!t.parentElement.classList.contains('table-wrapper')){const w=document.createElement('div');w.className='table-wrapper';t.parentNode.insertBefore(w,t);w.appendChild(t)}})</script>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var btn = document.getElementById('theme-toggle');
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function isDark() {
+          var t = html.getAttribute('data-theme');
+          return t === 'dark' || (t !== 'light' && mq.matches);
+        }
+
+        function updateIcon() {
+          var dark = isDark();
+          btn.textContent = dark ? '☀' : '🌙';
+          btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        }
+
+        btn.addEventListener('click', function () {
+          var next = isDark() ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          try {
+            localStorage.setItem('theme', next);
+          } catch (e) {
+          }
+          updateIcon();
+        });
+
+        mq.addEventListener('change', updateIcon);
+        updateIcon();
+      })();
+    </script>
   </body>
 </html>
