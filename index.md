@@ -7,7 +7,7 @@ layout: default
 The purpose of this organization is the preservation of platforms that have been designed or used for gaming and other artistic endeavors. Think of it as an attempt to tackle the hardware side of [abandonware](https://en.wikipedia.org/wiki/Abandonware).
 
 The primary goals are:
-* Collection, integration/unification and publication of previously hardware documentation in a standardized format as well as further improvement of such material via reverse engineering and testing.
+* Collection, integration/unification and publication of hardware documentation in a standardized format as well as further improvement of such material via reverse engineering and testing.
 * Publication of "proof" of said documentation in the form of tests that clearly replicate the documented behavior, in a standardized format designed for easy 3rd party replication of results.
 * Development of validation suites designed for validation of software and hardware implementations based on available tests featuring multiple "conformance levels".
 * Development of software that provides a reference implementation of said hardware.
