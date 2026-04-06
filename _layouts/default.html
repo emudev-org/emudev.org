@@ -19,7 +19,7 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="/"><img src="/assets/emudev.png" class="logo"></a>
+      <a href="/"><img src="/assets/emudev.png" class="logo" alt="emudev.org home"></a>
       <ul class="nav-links">
         <li class="nav-item"><a href="/getting_started">Getting Started</a></li>
         <li class="nav-item"><a href="/articles">Articles</a></li>
@@ -29,6 +29,7 @@
       </ul>
     </nav>
     <main>{{ content }}</main>
-    <p class="footer"><a href="https://github.com/emudev-org/emudev.org">Website source</a> on github. Pull requests very welcome!</p>
+    <footer><a href="https://github.com/emudev-org/emudev.org">Website source</a> on github. Pull requests very welcome!</footer>
+    <script>document.querySelectorAll('table').forEach(t=>{if(!t.parentElement.classList.contains('table-wrapper')){const w=document.createElement('div');w.className='table-wrapper';t.parentNode.insertBefore(w,t);w.appendChild(t)}})</script>
   </body>
 </html>
