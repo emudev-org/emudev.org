@@ -50,7 +50,10 @@
         btn.addEventListener('click', function () {
           var next = isDark() ? 'light' : 'dark';
           html.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
+          try {
+            localStorage.setItem('theme', next);
+          } catch (e) {
+          }
           updateIcon();
         });
 
