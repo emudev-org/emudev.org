@@ -2,3 +2,6 @@
 	path = docs/gba/gbatek
 	url = https://github.com/YetAnotherEmuDev/gbatek-mdbook
 	branch = mdbook
+[submodule "discord-resources"]
+	path = discord-resources
+	url = https://github.com/emudev-org/discord-resources.git

@@ -1,2 +1,14 @@
 title: emudev.org
 description: Emulator development for education and preservation
+
+defaults:
+  - scope:
+      path: "discord-resources/emudev_resources_general.md"
+    values:
+      layout: default
+      permalink: /getting_started
+  - scope:
+      path: "discord-resources/emudev_resources_systems.md"
+    values:
+      layout: default
+      permalink: /system_resources
