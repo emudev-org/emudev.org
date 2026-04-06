@@ -31,15 +31,17 @@ jobs:
         env:
           JEKYLL_ENV: production
           PAGES_REPO_NWO: ${{ github.repository }}
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to Cloudflare Pages
         id: deploy
         run: |
-          OUTPUT=$(npx wrangler pages deploy _site --project-name=emudev-org 2>&1)
-          echo "$OUTPUT"
+          npx wrangler pages deploy _site --project-name=emudev-org 2>&1 | tee /tmp/wrangler-output.txt
+          EXIT_CODE=${PIPESTATUS[0]}
           echo "output<<EOF" >> $GITHUB_OUTPUT
-          echo "$OUTPUT" >> $GITHUB_OUTPUT
+          cat /tmp/wrangler-output.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+          exit $EXIT_CODE
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
