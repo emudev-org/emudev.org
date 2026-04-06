@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to Cloudflare Pages
         id: deploy
         run: |
-          npx wrangler pages deploy _site --project-name=emudev-org 2>&1 | tee /tmp/wrangler-output.txt
+          npx wrangler pages deploy _site --project-name=emudev-org --commit-dirty=true 2>&1 | tee /tmp/wrangler-output.txt
           EXIT_CODE=${PIPESTATUS[0]}
           echo "output<<EOF" >> $GITHUB_OUTPUT
           cat /tmp/wrangler-output.txt >> $GITHUB_OUTPUT
