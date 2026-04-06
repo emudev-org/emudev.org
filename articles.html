@@ -6,6 +6,7 @@ layout: default
 {% if post.layout == "external" %}
 <h2 class="title"><a href="{{ post.external_url }}">{{ post.title }} &#x2197;</a></h2>
 <small>by {{ post.author }} on {{ post.date | date_to_string }}</small>
+{{ post.excerpt }}
 {% else %}
 <h2 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 <small>by {{ post.author }} on {{ post.date | date_to_string }}</small>
